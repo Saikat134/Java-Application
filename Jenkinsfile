@@ -5,17 +5,15 @@ pipeline{
             steps{
                 echo "This is for a Git Checkout"
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
+        stage("stage 2"){
+            input{
+                message 'Is it okay to continue?'
+                ok 'Yes,we should'
             }
+            steps{
+                echo "This is for a Stage 2"
+            }    
+            
         }
     }
     post{
@@ -29,4 +27,5 @@ pipeline{
             echo "========pipeline execution failed========"
         }
     }
+}
 }

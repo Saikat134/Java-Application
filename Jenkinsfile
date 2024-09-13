@@ -5,6 +5,7 @@ pipeline{
             steps{
                 echo "This is for a Git Checkout"
             }
+        }
         stage("stage 2"){
             input{
                 message 'Is it okay to continue?'
@@ -28,4 +29,4 @@ pipeline{
             echo "========pipeline execution failed========"
         }
     }
-}
+
